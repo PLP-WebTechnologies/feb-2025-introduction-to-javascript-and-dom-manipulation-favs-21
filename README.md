@@ -23,4 +23,75 @@ Respond to user interactions.
 - Use at least 5 different HTML elements.
 - Ensure semantic correctness.
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    #dynamicText {
+      font-size: 24px;
+      color: darkblue;
+      margin: 20px;
+    }
+    #specialElement {
+      margin-top: 20px;
+      color: green;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Webpage</h1>
+  <div id="dynamicText">Click the buttons below!</div>
+
+  <button onclick="changeText()">Change Text</button>
+  <button onclick="changeStyle()">Change Style</button>
+  <button onclick="toggleElement()">Add/Remove Element</button>
+
+  <div id="container"></div>
+
+  <script>
+    function changeText() {
+      document.getElementById('dynamicText').textContent = "You changed the text!";
+    }
+
+    function changeStyle() {
+      let text = document.getElementById('dynamicText');
+      text.style.color = "crimson";
+      text.style.fontSize = "30px";
+      text.style.fontWeight = "bold";
+    }
+
+    function toggleElement() {
+      const container = document.getElementById('container');
+      const existing = document.getElementById('specialElement');
+
+      if (existing) {
+        container.removeChild(existing);
+      } else {
+        const newElement = document.createElement('div');
+        newElement.id = "specialElement";
+        newElement.textContent = "Hello! I was added dynamically.";
+        container.appendChild(newElement);
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
 Happy Coding! 💻✨
